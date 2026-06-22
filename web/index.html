@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Shopping Readiness Auditor</title>
+  <meta name="description" content="Audit product pages for agentic e-commerce and AI shopping assistant readiness.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <span class="logo">◎</span>
+        <div>
+          <h1>AI Shopping Readiness Auditor</h1>
+          <p class="tagline">Is your product page ready for agentic commerce &amp; AI shopping assistants?</p>
+        </div>
+      </div>
+      <a class="ref" href="https://www.shopify.com/blog/how-agentic-commerce-works" target="_blank" rel="noopener">How agentic commerce works ↗</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- INPUT -->
+    <section class="card input-card" id="inputCard">
+      <div class="card-head">
+        <h2>Enter product page URLs</h2>
+        <span class="hint">One URL per line &middot; up to <strong id="maxUrls">25</strong> at once</span>
+      </div>
+
+      <textarea id="urlInput" rows="6" spellcheck="false"
+        placeholder="https://store.com/products/example-1&#10;https://store.com/products/example-2&#10;https://store.com/products/example-3"></textarea>
+
+      <div class="input-row">
+        <div class="input-actions">
+          <label class="btn ghost file-btn">
+            Upload .txt / .csv
+            <input type="file" id="fileInput" accept=".txt,.csv,text/plain,text/csv" hidden>
+          </label>
+          <button class="btn ghost" id="sampleBtn" type="button">Load sample URLs</button>
+          <button class="btn ghost" id="clearBtn" type="button">Clear</button>
+        </div>
+        <div class="input-meta">
+          <span id="counter" class="counter">0 / 25 URLs</span>
+          <button class="btn primary" id="auditBtn" type="button">Run Audit</button>
+        </div>
+      </div>
+      <p class="counter-warn" id="counterWarn" hidden></p>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="card" id="progressCard" hidden>
+      <div class="progress-head">
+        <span class="spinner"></span>
+        <span id="progressText">Auditing pages…</span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="progressBar"></div></div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" hidden>
+      <!-- dashboard -->
+      <div class="dashboard" id="dashboard"></div>
+
+      <div class="results-toolbar">
+        <h2>Summary</h2>
+        <div class="export">
+          <span class="export-label">Export:</span>
+          <button class="btn ghost" data-export="csv" data-kind="summary" type="button">CSV (summary)</button>
+          <button class="btn ghost" data-export="csv" data-kind="checks" type="button">CSV (all checks)</button>
+          <button class="btn ghost" data-export="xlsx" data-kind="summary" type="button">Excel (.xlsx)</button>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="summary-table" id="summaryTable">
+          <thead>
+            <tr>
+              <th>#</th><th>Product URL</th><th>Score</th><th>Readiness</th>
+              <th>Robots</th><th>Top gaps</th><th>Fixes</th><th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h2 class="detail-heading">Individual page reports</h2>
+      <div id="details"></div>
+    </section>
+
+    <section class="card empty" id="emptyState">
+      <p>Enter one or more product URLs above and run the audit to see readiness
+         scores, structured-data checks, robots.txt access for AI crawlers, and a
+         prioritised list of fixes.</p>
+    </section>
+  </main>
+
+  <footer class="foot wrap">
+    <p>Checks accessibility, robots.txt access for AI/shopping crawlers (ChatGPT,
+       Perplexity, Gemini, Claude, Bing/Copilot, Google Shopping, Amazon, Apple,
+       Meta), structured&nbsp;data &amp; product-schema completeness.
+       Inspired by Shopify's product-page audit concept.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Sample product URLs for the AI Shopping Readiness Auditor.
+# One URL per line. Lines starting with # are ignored. Up to 25 are audited.
+# Replace these with your own product pages, then run:
+#     python cli.py --file sample_urls.txt --csv report.csv
+# or paste them into the web UI (python run.py).
+
+https://www.allbirds.com/products/mens-wool-runner-go
+https://www.gymshark.com/products/gymshark-arrival-t-shirt-black
+https://www.shopify.com/blog/how-agentic-commerce-works

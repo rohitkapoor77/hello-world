@@ -1,0 +1,6 @@
+# The AI Shopping Readiness Auditor runs on the Python 3.9+ standard library.
+# No third-party packages are required.
+#
+# Optional (recommended) — better HTTP handling (redirects, gzip, TLS).
+# If absent, the tool falls back to urllib automatically.
+requests>=2.20
